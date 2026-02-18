@@ -13,17 +13,15 @@ class AbsenController extends Controller
 {
     public function store(Request $request)
     {
-        // Cari siswa berdasarkan NISN (karena yang dikirim dari QR adalah NISN)
-        $siswa = Siswa::where('nisn', $request->nisn)->first();
+        $siswa = Siswa::where('nama', $request->nama)->first();
 
         if (!$siswa) {
             return response()->json([
                 'success' => false,
-                'message' => 'NISN tidak terdaftar di sistem kami.'
+                'message' => 'Nama tidak terdaftar di sistem kami.'
             ], 404);
         }
 
-        // Cek apakah sudah absen hari ini (mencegah double absen)
         $sudahAbsen = Absen::where('id_nama', $siswa->id)
             ->where('tanggal', Carbon::now()->format('Y-m-d'))
             ->exists();
@@ -35,7 +33,6 @@ class AbsenController extends Controller
             ], 400);
         }
 
-        // Simpan data
         Absen::create([
             'id_nama' => $siswa->id,
             'nama'    => $siswa->nama,

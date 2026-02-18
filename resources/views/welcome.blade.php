@@ -60,10 +60,6 @@
             -webkit-appearance: none;
             margin: 0;
         }
-
-        input[type=number] {
-            -moz-appearance: textfield;
-        }
     </style>
 </head>
 
@@ -93,7 +89,7 @@
                 <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
                     <div>
                         <h1 class="text-3xl font-extrabold tracking-tight text-gray-900">Presensi Siswa</h1>
-                        <p class="text-gray-500 mt-1">Scan QR atau input manual NISN anda.</p>
+                        <p class="text-gray-500 mt-1">Scan QR atau input manual Nama anda.</p>
                     </div>
                     <div
                         class="bg-red-50 px-4 py-2 rounded-2xl border border-red-100 inline-flex flex-col items-center md:items-end">
@@ -108,7 +104,7 @@
                 </div>
 
                 <div class="mt-10 relative z-50">
-                    <label class="block text-xs font-bold uppercase tracking-wider text-gray-400 mb-3 px-1">Input NISN
+                    <label class="block text-xs font-bold uppercase tracking-wider text-gray-400 mb-3 px-1">Input Nama
                         Manual</label>
                     <div
                         class="flex flex-col sm:flex-row gap-0 overflow-hidden rounded-2xl border-2 border-red-500 shadow-lg shadow-red-100 bg-white">
@@ -119,11 +115,11 @@
                                         stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                                 </svg>
                             </span>
-                            <input type="number" id="manual_nisn"
+                            <input type="text" id="manual_nama"
                                 class="w-full pl-12 pr-4 py-4 bg-transparent outline-none text-lg font-semibold placeholder:font-normal"
-                                placeholder="Masukkan NISN">
+                                placeholder="Masukkan Nama Lengkap">
                         </div>
-                        <button onclick="prosesAbsen(document.getElementById('manual_nisn').value)"
+                        <button onclick="prosesAbsen(document.getElementById('manual_nama').value)"
                             class="bg-red-600 hover:bg-red-700 text-white px-10 py-4 font-extrabold transition-all active:scale-95 flex items-center justify-center gap-2 border-t sm:border-t-0 sm:border-l border-red-500 min-w-[160px]">
                             SUBMIT
                             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -190,19 +186,19 @@
             prosesAbsen(decodedText);
         }
 
-        function prosesAbsen(nisn) {
-            if (!nisn) {
+        function prosesAbsen(nama) {
+            if (!nama) {
                 Swal.fire({
                     icon: 'error',
-                    title: 'NISN Kosong',
-                    text: 'Silakan masukkan nomor NISN.'
+                    title: 'Nama Kosong',
+                    text: 'Silakan masukkan nama anda.'
                 });
                 return;
             }
 
             Swal.fire({
                 title: 'Konfirmasi',
-                text: "Proses absen untuk NISN: " + nisn + "?",
+                text: "Proses absen untuk nama: " + nama + "?",
                 icon: 'question',
                 showCancelButton: true,
                 confirmButtonColor: '#ef4444',
@@ -226,7 +222,7 @@
                                 "X-CSRF-TOKEN": document.querySelector('meta[name="csrf-token"]').content
                             },
                             body: JSON.stringify({
-                                nisn: nisn
+                                nama: nama
                             })
                         })
                         .then(response => response.json())
