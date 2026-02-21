@@ -13,7 +13,7 @@ class AbsenController extends Controller
 {
     public function store(Request $request)
     {
-        $input = trim($request->nama);
+        $input = preg_replace('/\s+/', ' ', trim($request->nama));
 
         if (!$input) {
             return response()->json(['success' => false, 'message' => 'Input tidak boleh kosong.'], 400);
