@@ -1,59 +1,94 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
-
 <p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
+<img src="https://www.google.com/search?q=https://capsule-render.vercel.app/api%3Ftype%3Dwaving%26color%3D0:ef4444,100:dc2626%26height%3D180%26section%3Dheader%26text%3DSmart%2520Attendance%26fontSize%3D70%26fontColor%3Dffffff%26animation%3DfadeIn%26fontAlignY%3D35%26desc%3DDigitalizing%2520Education%2520%2526%2520Efficiency%26descFontSize%3D20%26descAlignY%3D55%26descAlign%3D50" />
 </p>
 
-## About Laravel
+<p align="center">
+<img src="https://img.shields.io/badge/Laravel-FF2D20?style=for-the-badge&logo=laravel&logoColor=white">
+<img src="https://www.google.com/search?q=https://img.shields.io/badge/Tailwind_CSS-38B2AC%3Fstyle%3Dfor-the-badge%26logo%3Dtailwind-css%26logoColor%3Dwhite">
+<img src="https://www.google.com/search?q=https://img.shields.io/badge/JavaScript-F7DF1E%3Fstyle%3Dfor-the-badge%26logo%3Djavascript%26logoColor%3Dblack">
+<img src="https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white">
+</p>
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+<h2 align="center">🚀 Transforming Conventional Presence into Digital Precision</h2>
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+<p align="center">
+<b>Smart Attendance System</b> adalah solusi presensi berbasis web yang dirancang untuk kecepatan dan akurasi. Dibangun dengan fokus pada kemudahan akses menggunakan QR Scanner dan Input Manual yang cerdas.
+</p>
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+<p align="center">
+🔭 <b>KEY FEATURES:</b>
 
-## Learning Laravel
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
 
-## Laravel Sponsors
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+<b>• Intelligent QR Scanner:</b> Pemindaian real-time menggunakan <b>Html5-QRCode</b> yang mampu mendecode data gabungan Nama & NISN.
 
-### Premium Partners
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
 
-## Contributing
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
 
-## Code of Conduct
+<b>• Smart Input Recognition:</b> Sistem pencarian cerdas yang secara otomatis mengenali apakah input berupa <b>NISN (Angka)</b>, <b>Nama (Teks)</b>, atau <b>Gabungan keduanya</b>.
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
 
-## Security Vulnerabilities
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
 
-## License
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+<b>• Real-time Tracking:</b> Dashboard dengan sinkronisasi waktu presisi dan sistem validasi anti-double presensi.
+</p>
+
+<h3 align="center">🛠️ <b>Development Stack</b></h3>
+
+<p align="center">
+<img src="https://www.google.com/search?q=https://skillicons.dev/icons%3Fi%3Dlaravel,php,mysql,tailwind,js,html,css,git%26perline%3D8" />
+</p>
+
+<h3 align="center">⚙️ <b>Quick Setup Guide</b></h3>
+
+<p align="center">
+Jalankan perintah berikut untuk menginstal lingkungan pengembangan lokal:
+</p>
+
+<p align="center">
+<code>composer install</code> &bull; <code>npm install</code> &bull; <code>php artisan migrate</code> &bull; <code>php artisan serve</code>
+</p>
+
+<h3 align="center">📖 <b>System Logic (The Smart Part)</b></h3>
+
+<p align="center">
+Aplikasi ini menggunakan algoritma <b>Fallback Search</b> yang menjamin data ditemukan dengan minimal error:
+</p>
+
+<p align="center">
+<b>QR Data</b> (Nama + NISN) &rarr; <b>Extraction</b> (NISN Only) &rarr; <b>Database Match</b> (Unique)
+
+
+
+
+
+<i>Failing that?</i>
+
+
+
+
+
+<b>Fuzzy Search</b> (Input Teks) &rarr; <b>LIKE SQL Operator</b> &rarr; <b>User Recognition</b>
+</p>
+
+<h3 align="center">📫 <b>Let's Collaborate!</b></h3>
+
+<p align="center">
+<a href="https://haikalabror.vercel.app/">
+<img src="https://img.shields.io/badge/Portfolio-Visit_Site-34d399?style=for-the-badge&logo=vercel&logoColor=white" alt="Portfolio">
+</a>
+<a href="mailto:abrorhaikal@gmail.com">
+<img src="https://www.google.com/search?q=https://img.shields.io/badge/Email-Contact_Me-ef4444%3Fstyle%3Dfor-the-badge%26logo%3Dgmail%26logoColor%3Dwhite" alt="Email">
+</a>
+<a href="https://linkedin.com/in/haikal-abror">
+<img src="https://img.shields.io/badge/LinkedIn-Connect-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn">
+</a>
+</p>
+
+<p align="center">
+<img src="https://www.google.com/search?q=https://capsule-render.vercel.app/api%3Ftype%3Dwaving%26color%3D0:dc2626,100:ef4444%26height%3D120%26section%3Dfooter" />
+</p>
