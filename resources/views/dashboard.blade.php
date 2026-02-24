@@ -23,15 +23,20 @@
                     <span>Siswa Baru</span>
                 </button>
 
-                <form action="{{ route('absen.export') }}" method="GET"
+                <form id="filterForm" action="{{ route('dashboard') }}" method="GET"
                     class="flex items-center gap-3 bg-white/80 backdrop-blur-xl p-2 rounded-[28px] shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-white">
                     <div class="flex items-center pl-4 pr-2">
                         <i data-lucide="calendar" class="w-4 h-4 text-gray-400 mr-3"></i>
-                        <input type="month" name="bulan" value="{{ $bulanDipilih }}"
+                        <input type="month" name="bulan" id="filterBulan" value="{{ $bulanDipilih }}"
                             class="border-none focus:ring-0 text-sm font-bold text-gray-800 bg-transparent p-0 cursor-pointer uppercase"
                             required>
                     </div>
                     <button type="submit"
+                        class="flex items-center px-6 py-3 bg-gray-900 hover:bg-red-600 text-white rounded-[22px] text-[10px] font-black uppercase tracking-widest transition-all shadow-lg">
+                        <i data-lucide="filter" class="w-3.5 h-3.5 mr-2"></i>
+                        Filter
+                    </button>
+                    <button type="button" onclick="exportData()"
                         class="flex items-center px-6 py-3 bg-emerald-500 hover:bg-emerald-600 text-white rounded-[22px] text-[10px] font-black uppercase tracking-widest transition-all shadow-lg shadow-emerald-200">
                         <i data-lucide="download" class="w-3.5 h-3.5 mr-2"></i>
                         Export
@@ -43,7 +48,6 @@
 
     <div class="py-12 bg-[#F4F7FA]">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-
             <div class="inline-flex p-1.5 bg-gray-200/50 backdrop-blur-md rounded-[32px] mb-12 shadow-inner">
                 <button onclick="switchTab('rekap')" id="tab-rekap"
                     class="tab-btn px-10 py-4 rounded-[28px] text-[11px] font-black tracking-[0.2em] transition-all duration-500">
@@ -151,7 +155,6 @@
                                         {{ $s->nama }}</h4>
                                     <code
                                         class="text-xs font-black text-gray-400 tracking-[0.2em] mb-8">{{ $s->nisn }}</code>
-
                                     <div class="flex gap-3 mt-auto">
                                         <button
                                             onclick="editSiswa({{ $s->id }}, '{{ $s->nama }}', '{{ $s->nisn }}')"
@@ -181,8 +184,6 @@
             <div class="fixed inset-0 bg-gray-900/90 backdrop-blur-xl" onclick="closeModal('modalSiswa')"></div>
             <div
                 class="relative bg-white rounded-[60px] shadow-2xl max-w-xl w-full p-16 overflow-hidden transform transition-all">
-                <div class="absolute -top-24 -left-24 w-64 h-64 bg-red-500/10 rounded-full blur-3xl"></div>
-
                 <header class="flex justify-between items-center mb-12">
                     <h3 id="modalTitle" class="text-4xl font-black text-gray-900 tracking-tighter italic uppercase">
                         Input <span class="text-red-600">Siswa</span></h3>
@@ -191,7 +192,6 @@
                         <i data-lucide="x" class="w-6 h-6 text-gray-400 hover:text-red-600"></i>
                     </button>
                 </header>
-
                 <form id="siswaForm" action="{{ route('siswa.store') }}" method="POST" class="space-y-8">
                     @csrf
                     <div id="methodField"></div>
@@ -213,9 +213,8 @@
                         </div>
                     </div>
                     <button type="submit"
-                        class="w-full mt-10 py-8 bg-gray-900 hover:bg-red-600 text-white rounded-[35px] font-black shadow-2xl shadow-red-200 transition-all active:scale-95 uppercase tracking-[0.3em] text-xs">
-                        Push to Database
-                    </button>
+                        class="w-full mt-10 py-8 bg-gray-900 hover:bg-red-600 text-white rounded-[35px] font-black shadow-2xl transition-all active:scale-95 uppercase tracking-[0.3em] text-xs">Push
+                        to Database</button>
                 </form>
             </div>
         </div>
@@ -223,12 +222,14 @@
 
     <style>
         .active-tab {
-            bg-white shadow-xl shadow-gray-400/10 text-gray-900 transform scale-105;
             background: white !important;
+            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1);
+            transform: scale(1.05);
+            color: #111827;
         }
 
         .inactive-tab {
-            text-gray-400 hover: text-gray-600;
+            color: #9ca3af;
         }
 
         .animate-fade-in {
@@ -258,10 +259,8 @@
         function switchTab(tab) {
             document.getElementById('content-rekap').classList.toggle('hidden', tab !== 'rekap');
             document.getElementById('content-siswa').classList.toggle('hidden', tab !== 'siswa');
-
             const rekapBtn = document.getElementById('tab-rekap');
             const siswaBtn = document.getElementById('tab-siswa');
-
             if (tab === 'rekap') {
                 rekapBtn.classList.add('active-tab');
                 rekapBtn.classList.remove('inactive-tab');
@@ -275,7 +274,12 @@
             }
         }
 
-        switchTab('rekap'); // Initial state
+        switchTab('rekap');
+
+        function exportData() {
+            const bulan = document.getElementById('filterBulan').value;
+            window.location.href = `{{ route('absen.export') }}?bulan=${bulan}`;
+        }
 
         function openModal(type) {
             document.getElementById('modalSiswa').classList.remove('hidden');
@@ -292,7 +296,7 @@
             document.getElementById('modalSiswa').classList.remove('hidden');
             document.getElementById('modalTitle').innerHTML = 'Update <span class="text-blue-600">Siswa</span>';
             document.getElementById('siswaForm').action = `/siswa/${id}`;
-            document.getElementById('methodField').innerHTML = '@method('PUT')';
+            document.getElementById('methodField').innerHTML = '<input type="hidden" name="_method" value="PUT">';
             document.getElementById('formNama').value = nama;
             document.getElementById('formNisn').value = nisn;
         }
@@ -302,24 +306,9 @@
         }
 
         function confirmDelete(id) {
-            Swal.fire({
-                title: 'TERMINATE RECORD?',
-                text: "This action cannot be undone!",
-                icon: 'error',
-                showCancelButton: true,
-                confirmButtonColor: '#000',
-                cancelButtonColor: '#f3f4f6',
-                confirmButtonText: 'DELETE',
-                cancelButtonText: '<span style="color:#000">CANCEL</span>',
-                customClass: {
-                    popup: 'rounded-[40px]',
-                    confirmButton: 'rounded-2xl px-8 py-4 font-black'
-                }
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    document.getElementById(`delete-form-${id}`).submit();
-                }
-            })
+            if (confirm('TERMINATE RECORD? This action cannot be undone!')) {
+                document.getElementById(`delete-form-${id}`).submit();
+            }
         }
     </script>
 </x-app-layout>

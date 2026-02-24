@@ -12,8 +12,9 @@ class DashboardController extends Controller
         $bulanDipilih = $request->get('bulan', date('Y-m'));
 
         $rekapAbsen = Absen::where('tanggal', 'like', $bulanDipilih . '%')
-            ->orderBy('nama')
+            ->orderBy('nama', 'asc')
             ->orderBy('tanggal', 'asc')
+            ->orderBy('waktu', 'asc')
             ->get()
             ->groupBy('nama');
 
