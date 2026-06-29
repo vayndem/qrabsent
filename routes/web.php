@@ -36,4 +36,6 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+// deployment ulang
+
 require __DIR__ . '/auth.php';
